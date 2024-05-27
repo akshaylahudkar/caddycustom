@@ -1,0 +1,24 @@
+:60410 {
+    log {
+        output file /Users/akshaylahudkar/sky/caddy.txt
+        level DEBUG
+    }
+    
+    route {
+        redirector stdout
+        forward_proxy {
+
+            acl {
+                allow all
+            }
+            upstream http://localhost:6060
+        }
+    }
+    
+
+}
+
+:6060 {
+    respond "Hello from 6060"
+}
+
